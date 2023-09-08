@@ -1,19 +1,12 @@
-apiVersion: apps/v1
-kind: Deployment
+apiVersion: v1
+kind: Service
 metadata:
-  name: my-deployment
+  name: python-app-service
 spec:
-  replicas: 3
+  type: NodePort
   selector:
-    matchLabels:
-      app: my-app
-  template:
-    metadata:
-      labels:
-        app: my-app
-    spec:
-      containers:
-        - name: my-container
-          image: my-image:latest
-          ports:
-            - containerPort: 8080
+    app: python-app
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 80
