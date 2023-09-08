@@ -25,7 +25,7 @@ jobs:
         ECR_REPOSITORY: my-ecr-repository
         IMAGE_NAME: my-image
       run: |
-        docker build -t $ECR_REGISTRY/$IMAGE_NAME .
+        docker build -t my-ecr-repository .
         docker push 568373317874.dkr.ecr.us-east-1.amazonaws.com/my-ecr-repository:latest
 
   test:
