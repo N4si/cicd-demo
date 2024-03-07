@@ -21,7 +21,7 @@ jobs:
           IMAGE_NAME: my-image
         run: |
           docker build -t $DOCKERHUB_USERNAME/$IMAGE_NAME .
-          docker push $DOCKERHUB_USERNAME/$IMAGE_NAME:$VERSION
+          docker push $DOCKERHUB_USERNAME/$IMAGE_NAME:vars.VERSION
 
   test:
     runs-on: ubuntu-latest
