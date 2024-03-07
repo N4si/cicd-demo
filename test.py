@@ -1,6 +1,6 @@
 import pytest
 from app import app
-from werkzeug.urls import url_quote
+from urllib.parse import quote
 
 @pytest.fixture
 def client():
@@ -8,8 +8,8 @@ def client():
     with app.test_client() as client:
         yield client
 
-
 def test_app_is_working(client):
     response = client.get('/')
     assert response.status_code == 200
-    assert b"Hello CI CD World!" in response.data
+    expected_output = quote("Hello CI CD World!")
+    assert expected_output.encode('utf-8') in response.data
