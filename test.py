@@ -1,6 +1,6 @@
 import pytest
 from app import app
-
+from werkzeug.urls import url_quote
 
 @pytest.fixture
 def client():
